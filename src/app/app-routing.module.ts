@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 //mapping address and component
 const routes: Routes = [
   {path: '', component: LoginComponent},
+  {path: 'logout', component: LoginComponent},
   {path: 'data', component: DataComponent},
   {path: 'test', component: TestSandboxComponent} 
 ];

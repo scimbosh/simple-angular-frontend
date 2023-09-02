@@ -11,3 +11,5 @@
 <p *ngIf="userSecretData">Your user data: {{userSecretData}}</p>
 <br>
 <p [hidden]="!errorFlag">Authorization Error</p>
+<br>
+<button (click)="logout()">Log out</button>

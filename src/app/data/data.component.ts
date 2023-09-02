@@ -64,7 +64,10 @@ export class DataComponent implements OnInit {
       }
     );
 
-
   };
+
+  logout() {
+    this.router.navigate(['/logout']);
+  }
 
 }
