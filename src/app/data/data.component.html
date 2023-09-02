@@ -1,15 +1,13 @@
 <p>data works!</p>
 <!--Comment-->
-<p>{{name}}</p>
-<button (click)="changeName()" >Button1_UUID</button>
-
-
-<button (click)="changeDisabled()" >Button2_Disable_btns</button>
-
-<button [disabled]="disabled">Button3-CanBeDisabled</button>
-<p [hidden]="disabled">{{disabled}}</p>
-
-
-
-<button *ngIf="disabled">Button4_ngIf_CanBeDisabled</button>
- 
+<label for="fname">Login: {{login}} </label>
+<br>
+<label for="fname">Password: {{password}} </label>
+<br>
+<label for="fname">Token: {{token}} </label>
+<br>
+<br>
+<button (click)="getSecretData()">Get data</button>
+<p *ngIf="userSecretData">Your user data: {{userSecretData}}</p>
+<br>
+<p [hidden]="!errorFlag">Authorization Error</p>

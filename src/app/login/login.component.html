@@ -1,0 +1,15 @@
+<p>login works!</p>
+
+<br>
+<label for="fname">Login:</label>
+<input [(ngModel)]="login" placeholder="input login"/>
+<br>
+<label for="fname">Password:</label>
+<input [(ngModel)]="password" placeholder="input password"/> 
+<br>
+<p>{{login}}</p>
+<p>{{password}}</p>
+<br>
+<button (click)="openDataPage()">Enter</button>
+<br>
+<p [hidden]="!errorFlag">Authorization Error</p>
