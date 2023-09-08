@@ -8,20 +8,30 @@ import { TestSandboxComponent } from './test-sandbox/test-sandbox.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
-
+import { TaskComponent } from './task/task.component';
+import { TasksComponent } from './tasks/tasks.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CreateTaskComponent } from './create-task/create-task.component';
+import { MainComponent } from './main/main.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DataComponent,
     TestSandboxComponent,
-    LoginComponent
+    LoginComponent,
+    TaskComponent,
+    TasksComponent,
+    CreateTaskComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
