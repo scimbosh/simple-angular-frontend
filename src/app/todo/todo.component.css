@@ -1,0 +1,130 @@
+
+button {
+    border: none;
+    background-color: var(--secondary);
+    color: var(--on-secondary);
+    font-size: var(--font-size);
+    height: 60px;
+    margin: var(--spacing) 0;
+    max-width: 450px;
+    /* width: 100%; */
+    width: var(--spacing) 100%;
+
+}
+
+/* !!! */
+div.deleteItem {
+    display: flex;
+}
+
+button[type="submit"] {
+    background-color: var(--primary);
+    color: var(--on-primary);
+    text-transform: uppercase;
+    width: 100%;
+}
+
+li.row{
+    position: relative;
+}
+
+button[type="deleteOne"] {
+    position: absolute;
+    right: 0;
+    width: 20%;
+}
+
+button[type="deleteAll"] {
+    margin: auto;
+    width: 100%;
+}
+
+button:hover {
+    filter: brightness(80%);
+}
+
+button:active {
+    filter: brightness(120%);
+}
+
+
+form {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: calc(4 * var(--spacing));
+}
+
+input {
+    background: transparent;
+    border: 1px solid var(--text);
+    border-radius: 3px;
+    line-height: 30px;
+    font-size: var(--font-size);
+    margin: var(--spacing) 0;
+    max-width: 416px;
+    padding: calc(4 * var(--spacing));
+    width: 100%;
+}
+
+input[type="checkbox"] {
+    height: 48px;
+    margin: var(--spacing);
+    width: 48px;
+
+}
+
+ul {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    padding: calc(4 * var(--spacing));
+}
+
+li {
+    display: flex;
+    height: calc(48px + calc(2 * var(--spacing)));
+    max-width: 450px;
+    width: 100%;  
+    margin: var(--spacing) 0;
+}
+  
+span.textInRow{
+    flex-direction: row;
+    display: flex;
+    align-items: center ; 
+    font-size: 30px;
+    /* display: inline-block */
+    /* vertical-align: baseline; */
+    /* line-height: 210% */
+}
+
+
+
+/* 
+
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+
+li.completed {
+    text-decoration: line-through;
+}
+
+
+
+span {
+    flex: 1;
+    font-size: var(--font-size);
+    line-height: calc(48px + calc(2 * var(--spacing)));
+} 
+
+
+
+
+*/

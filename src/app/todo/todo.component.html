@@ -1,0 +1,23 @@
+<div class="ToDoList">
+    <h1>ToDo list</h1>
+    <div class="addItem">
+        <form (ngSubmit)="addTodo()" #todoForm="ngForm">
+            <input [(ngModel)]="newTodo.newTodo" placeholder="Add a new todo" class="addText" name="newTodo">
+            <button type="submit" class="btn-success">ADD</button>
+
+        </form>
+    </div>
+
+    <ul>
+        <li class="row" *ngFor="let todo of todos; let number = index">
+            <input type="checkbox" [(ngModel)]="todo.status">
+            <span class="textInRow">{{todo.newTodo}}</span>
+            <button type="deleteOne" (click)="deleteTodo(number)" class="deleteOne">Delete</button>
+
+        </li>
+    </ul>
+    <br />
+    <div class="deleteItem">
+        <button type="deleteAll" (click)="deleteSelected()" class="deleteAll">DELETE ALL</button>
+    </div>
+</div>

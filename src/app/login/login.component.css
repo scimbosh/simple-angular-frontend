@@ -1,10 +1,6 @@
 body {
     background: linear-gradient(to left top, #ad137f, #46949e);
-    min-height: 100%;
-    min-width: 100%;
-    position: fixed; 
-    top: 0; 
-    left: 0; 
+    background-size: cover;
 }
 
 div {
@@ -22,6 +18,7 @@ div {
     width: 400px;
     padding: 10px;
     font-size: 14px;
+    
 }
 
 #title {
@@ -38,6 +35,7 @@ div {
     border: 2px solid rgba(255, 255, 255, 0.2);
     color: rgba(28, 147, 163, 0.8);
     transition: all 0.5s;
+    
 }
 
 #form:hover {
