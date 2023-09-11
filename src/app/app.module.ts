@@ -8,13 +8,8 @@ import { TestSandboxComponent } from './test-sandbox/test-sandbox.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
-import { TaskComponent } from './task/task.component';
-import { TasksComponent } from './tasks/tasks.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { CreateTaskComponent } from './create-task/create-task.component';
-import { MainComponent } from './main/main.component';
-import { DeleteTaskComponent } from './delete-task/delete-task.component';
-import { Todo2Component } from './todo2/todo2.component';
+import { TodoComponent } from './todo/todo.component';
 
 @NgModule({
   declarations: [
@@ -22,12 +17,7 @@ import { Todo2Component } from './todo2/todo2.component';
     DataComponent,
     TestSandboxComponent,
     LoginComponent,
-    TaskComponent,
-    TasksComponent,
-    CreateTaskComponent,
-    MainComponent,
-    DeleteTaskComponent,
-    Todo2Component
+    TodoComponent
   ],
   imports: [
     BrowserModule,

@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Todo } from 'src/app/model/todo';
 
 @Component({
-  selector: 'app-todo2',
-  templateUrl: './todo2.component.html',
-  styleUrls: ['./todo2.component.css']
+  selector: 'app-todo',
+  templateUrl: './todo.component.html',
+  styleUrls: ['./todo.component.css']
 })
-export class Todo2Component implements OnInit {
+export class TodoComponent implements OnInit {
   todos: Todo[] = [];
   newTodo = new Todo();
 
@@ -26,13 +26,12 @@ export class Todo2Component implements OnInit {
     //   }
     // });
 
-    this.todos = this.todos.filter((todo)=> !todo.status);
+    this.todos = this.todos.filter((todo) => !todo.status);
 
   }
-
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
+
 }
