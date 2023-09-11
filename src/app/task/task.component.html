@@ -3,7 +3,8 @@
   <input
     type="checkbox"
     [checked]="task.completed"
-    (click)="completed.emit(task?.id)"
     readonly
   />
+  <button type="button" (click)="clickDelete()">Delete</button>
+  <button type="button" (deleted)="deleted.emit($event)">Delete2</button>
 </li>

@@ -4,6 +4,7 @@ import { DataComponent } from './data/data.component';
 import { TestSandboxComponent } from './test-sandbox/test-sandbox.component';
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
+import { Todo2Component } from './todo2/todo2.component';
 
 //mapping address and component
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path: 'data', component: DataComponent},
   {path: 'test', component: TestSandboxComponent},
   {path: 'main', component: MainComponent},
+  {path: 'todo2', component: Todo2Component},
 
 ];
 

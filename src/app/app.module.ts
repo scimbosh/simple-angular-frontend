@@ -13,6 +13,8 @@ import { TasksComponent } from './tasks/tasks.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CreateTaskComponent } from './create-task/create-task.component';
 import { MainComponent } from './main/main.component';
+import { DeleteTaskComponent } from './delete-task/delete-task.component';
+import { Todo2Component } from './todo2/todo2.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { MainComponent } from './main/main.component';
     TaskComponent,
     TasksComponent,
     CreateTaskComponent,
-    MainComponent
+    MainComponent,
+    DeleteTaskComponent,
+    Todo2Component
   ],
   imports: [
     BrowserModule,
