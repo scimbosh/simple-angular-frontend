@@ -4,18 +4,18 @@
 
         <br>
         <!-- <label for="fname">Login:</label>-->
-        <input [(ngModel)]="login" type="text" id="form" placeholder="input login" />
+        <input [(ngModel)]="credentials.username" type="text" id="form" placeholder="input login" />
         <br>
         <label id="label" for="fname">Default login: loginw18</label>
         <br>
 
         <!-- <label for="fname">Password:</label>-->
-        <input [(ngModel)]="password" type="text" id="form" placeholder="input password" />
+        <input [(ngModel)]="credentials.password" id="form" placeholder="input password" />
         <br>
         <label id="label" for="fname">Default password: password1</label>
         <br>
 
         <br>
-        <button type="submit" id="button" (click)="openDataPage()">Enter</button>
+        <button type="submit" id="button" (click)="login()">Enter</button>
         <br>
-        <p id="title" [hidden]="!errorFlag">Authorization Error</p>
+        <p id="title" [hidden]="true">Authorization Error</p>

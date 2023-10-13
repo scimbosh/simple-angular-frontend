@@ -1,79 +1,34 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { AppService } from 'src/app/appservice/app.service';
+import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { interval, take, firstValueFrom } from 'rxjs';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
 
-  login = "";
-  password = "";
-  token = "";
-  errorFlag = false
+export class LoginComponent {
 
-  constructor(
-    private router: Router,
-    private httpClient: HttpClient
-  ) { }
+    username = "";
+    password = "";
+    credentials = { username: this.username, password: this.password };
 
-  ngOnInit(): void {
+    constructor(private app: AppService, private http: HttpClient, private router: Router) {
+    }
 
-  }
+    ngOnInit(): void {
 
-  openDataPage() {
-    const data = {
-      login: this.login,
-      password: this.password,
-    };
-    const body = JSON.stringify(data)
+    }
 
-    this.httpClient.post<any>(environment.backendURL + "/login/signin",
-      body,
-      {
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      }
-    ).subscribe(
-      {
 
-        next: ((response: any) => {
-          console.log(response)
-          this.token = response.token
-          this.errorFlag = false
-
-          if (this.token !== "") {
-            this.router.navigate(['/data'], {
-              queryParams: {
-                login: this.login,
-                password: this.password,
-                token: this.token
-              }
-            })
-
-          } else {
-            this.errorFlag = true
-          }
-
-        }),
-
-        error: (error => {
-          this.errorFlag = true
-          console.log(error);
+    login() {
+        this.app.authenticate(this.credentials, () => {
+            this.router.navigate(['/todo']);
         })
-      }
-    );
-
-
-
-
-
-
-  }
+    }
 
 }
