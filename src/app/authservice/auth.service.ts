@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
-    credentials = { username: "", password: "" };
     private host = environment.backendURL;
 
     constructor(private httpClient: HttpClient, private router: Router) { }
@@ -35,13 +34,11 @@ export class AuthService {
                         this.router.navigate(['/data'])
                     } else {
                         console.log('username not found')
-                        this.credentials = { username: "", password: "" }
                     }
                 }),
 
                 error: (error => {
                     console.log(error);
-                    this.credentials = { username: "", password: "" }
                 })
             }
         )
