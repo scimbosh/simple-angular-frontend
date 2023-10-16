@@ -25,7 +25,7 @@ export class AppService {
             authorization: 'Basic ' + btoa(_runtimeCredentials.username + ':' + _runtimeCredentials.password)
         } : {});
 
-        this.http.get(environment.backendURL + '/login2', { headers: headers }).subscribe((response: any) => {
+        this.http.get(environment.backendURL + '/auth/login', { headers: headers }).subscribe((response: any) => {
             if (response['username']) {
                 this.authenticated = true;
                 this.credentials = _runtimeCredentials
