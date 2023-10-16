@@ -7,6 +7,7 @@ import { TodoComponent } from './todo/todo.component';
 
 //mapping address and component
 const routes: Routes = [
+  {path: '', component: LoginComponent},
   {path: 'login', component: LoginComponent},
   {path: 'logout', component: LoginComponent},
   {path: 'data', component: DataComponent},
