@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { AppService } from 'src/app/appservice/app.service';
+import { AuthService } from 'src/app/authservice/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
-import { interval, take, firstValueFrom } from 'rxjs';
+import { User } from 'src/app/model/user/user';
 
 @Component({
     selector: 'app-login',
@@ -15,20 +15,19 @@ export class LoginComponent {
 
     username = "";
     password = "";
-    credentials = { username: this.username, password: this.password };
+    //private user =  new User();
 
-    constructor(private app: AppService, private http: HttpClient, private router: Router) {
+    constructor(private authService: AuthService, private http: HttpClient, private router: Router) {
     }
 
     ngOnInit(): void {
 
     }
 
-
-    login() {
-        this.app.authenticate(this.credentials, () => {
-            this.router.navigate(['/todo']);
-        })
+    login() {      
+        //this.user = {username: this.username, password: this.password }
+        this.authService.login(this.username, this.password);
     }
-
 }
+
+

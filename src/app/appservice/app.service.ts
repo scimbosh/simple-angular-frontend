@@ -17,7 +17,7 @@ export class AppService {
         var _runtimeCredentials = { username: "", password: "" }
         if (this.authenticated === true) {
             _runtimeCredentials = this.credentials
-        }else{
+        } else {
             _runtimeCredentials = inputCredentials
         }
 
