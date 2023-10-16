@@ -30,8 +30,8 @@ export class AuthService {
                     if (response['name']) {
                         console.log('save authToken')
                         sessionStorage.setItem('authToken', _authToken);
-                        console.log('redirect to /data')
-                        this.router.navigate(['/data'])
+                        console.log('redirect')
+                        this.router.navigate(['/todo'])
                     } else {
                         console.log('username not found')
                     }
