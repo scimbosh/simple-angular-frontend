@@ -5,11 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DataComponent } from './data/data.component';
 import { TestSandboxComponent } from './test-sandbox/test-sandbox.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TodoComponent } from './todo/todo.component';
+import { AuthInterceptor } from 'src/app/interceptor/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,9 @@ import { TodoComponent } from './todo/todo.component';
     BrowserModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

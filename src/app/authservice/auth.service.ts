@@ -25,7 +25,7 @@ export class AuthService {
         }).subscribe(
             {
                 next: ((response: any) => {
-                    console.log('response received')
+                    console.log('/auth/login response received')
                     console.log(JSON.stringify(response))
                     if (response['name']) {
                         console.log('save authToken')
@@ -45,7 +45,10 @@ export class AuthService {
     }
 
     getAuthTokenFromCache(): string | null {
-        return sessionStorage.getItem('authToken');
+        console.log('Get token from session storage')
+        var token = sessionStorage.getItem('authToken');
+        console.log(JSON.stringify(token));
+        return token;
     }
 
 
