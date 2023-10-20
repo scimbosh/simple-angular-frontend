@@ -13,10 +13,11 @@ export class AuthService {
 
     constructor(private httpClient: HttpClient, private router: Router) { }
 
-    login(username: string, password: string) {
-        const _authToken = 'Basic ' + btoa(username + ':' + password)
+    //login(username: string, password: string) {
+    login(user: User) {
+        const _authToken = 'Basic ' + btoa(user.username + ':' + user.password)
         
-        console.log(`username = ${username}, password = ${password} authToken = ${_authToken}`)
+        console.log(`username = ${user.username}, password = ${user.password} authToken = ${_authToken}`)
 
         this.httpClient.get(`${this.host}/auth/login`, {
             headers: {

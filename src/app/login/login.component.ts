@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/authservice/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { User } from '../model/user/user';
 
 @Component({
     selector: 'app-login',
@@ -13,17 +14,20 @@ export class LoginComponent {
 
     username = "";
     password = "";
+    user: User = { 
+        id: undefined, 
+        username: this.username, 
+        password: this.password, 
+        roles: undefined 
+    }
 
     constructor(private authService: AuthService, private http: HttpClient, private router: Router) {
     }
 
-    ngOnInit(): void {
+    ngOnInit(): void {}
 
-    }
-
-    login() {      
-        //this.user = {username: this.username, password: this.password }
-        this.authService.login(this.username, this.password);
+    login() {
+        this.authService.login(this.user);
     }
 }
 
