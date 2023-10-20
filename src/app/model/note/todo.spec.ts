@@ -1,7 +1,7 @@
-import { Note } from './note';
+import { Todo } from './todo';
 
 describe('Note', () => {
   it('should create an instance', () => {
-    expect(new Note()).toBeTruthy();
+    expect(new Todo()).toBeTruthy();
   });
 });

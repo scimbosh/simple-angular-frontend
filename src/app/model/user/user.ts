@@ -1,5 +1,14 @@
 export class User {
-    // username: string | null;
-	// password: string | null;
+    id: number | undefined;
+    username: string | undefined;
+	password: string | undefined;
+    roles: string | undefined;
+
+    constructor() {
+        this.id = undefined;
+        this.username = undefined;
+        this.password = undefined;
+        this.roles = undefined;
+    }
 
 }

@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit, Optional } from '@angular/core';
-import { Note } from 'src/app/model/note/note';
+import { Todo } from 'src/app/model/note/todo';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
@@ -13,14 +13,14 @@ export class TodoComponent implements OnInit {
     private host = environment.backendURL;
     content = "";
     checked = false;
-    toDoList: Note[] = []
+    toDoList: Todo[] = []
 
     constructor(private httpClient: HttpClient) { }
 
     ngOnInit() { this.getToDoList() }
 
     createTodo() {
-        var injectTodo : Note = new Note;
+        var injectTodo : Todo = new Todo;
         injectTodo.content = this.content
         injectTodo.checked = this.checked
 
@@ -46,7 +46,7 @@ export class TodoComponent implements OnInit {
     }
 
     getToDoList() {
-        this.httpClient.get<Note[]>(`${this.host}/todo/list`).subscribe({
+        this.httpClient.get<Todo[]>(`${this.host}/todo/list`).subscribe({
             next: ((response: any) => {
                 console.log('/todo/list response received')
                 console.log(JSON.stringify(response))
@@ -57,7 +57,7 @@ export class TodoComponent implements OnInit {
         })
     }
 
-    deleteTodo(todo: Note) {
+    deleteTodo(todo: Todo) {
         this.httpClient.delete(`${this.host}/todo/delete`, {
             headers: {
                 'Content-Type': 'application/json'
@@ -96,7 +96,6 @@ export class TodoComponent implements OnInit {
             next: ((response: any) => {
                 console.log('/todo/list response received')
                 console.log(JSON.stringify(response))
-
             })
         })
     }

@@ -1,4 +1,4 @@
-export class Note {
+export class Todo {
 
     public id: number | undefined;
     public content: string | undefined;
