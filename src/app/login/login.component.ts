@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/authservice/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { User } from '../model/user/user';
+import { User } from 'src/app/model/user/user';
 
 @Component({
     selector: 'app-login',
@@ -12,12 +12,10 @@ import { User } from '../model/user/user';
 
 export class LoginComponent {
 
-    username = "";
-    password = "";
     user: User = { 
         id: undefined, 
-        username: this.username, 
-        password: this.password, 
+        username: undefined, 
+        password: undefined, 
         roles: undefined 
     }
 
