@@ -1,5 +1,4 @@
 import { Component, Inject, OnInit, Optional } from '@angular/core';
-import { Todo } from 'src/app/model/todo';
 import { Note } from 'src/app/model/note/note';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
