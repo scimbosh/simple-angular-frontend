@@ -1,18 +1,20 @@
 <div class="ToDoList">
+<!--Comment-->
+
     <h1>ToDo list</h1>
     <div class="addItem">
-        <form (ngSubmit)="addTodo()" #todoForm="ngForm">
-            <input [(ngModel)]="newTodo.newTodo" placeholder="Add a new todo" class="addText" name="newTodo">
+        <form (ngSubmit)="createTodo()" #todoForm="ngForm">
+            <input [(ngModel)]="content" placeholder="Add a new todo content " class="addText" name="newTodo">
             <button type="submit" class="btn-success">ADD</button>
 
         </form>
     </div>
 
     <ul>
-        <li class="row" *ngFor="let todo of todos; let number = index">
-            <input type="checkbox" [(ngModel)]="todo.status">
-            <span class="textInRow">{{todo.newTodo}}</span>
-            <button type="deleteOne" (click)="deleteTodo(number)" class="deleteOne">Delete</button>
+        <li class="row" *ngFor="let todo of toDoList; let number = index">
+            <input type="checkbox" [(ngModel)]="todo.checked">
+            <span class="textInRow">{{todo.content}}</span>
+            <button type="deleteOne" (click)="deleteTodo(todo)" class="deleteOne">Delete</button>
 
         </li>
     </ul>
@@ -20,9 +22,14 @@
     <div class="deleteItem">
         <button type="deleteAll" (click)="deleteSelected()" class="deleteAll">DELETE ALL</button>
     </div>
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <div class="getTodoList">
-        <button type="deleteAll" (click)="getTodoList()" class="deleteAll">Get list</button>
+        <button type="deleteAll" (click)="getToDoList()" class="deleteAll">getToDoList()</button>
     </div>
 
-    getTodoList()
 </div>
