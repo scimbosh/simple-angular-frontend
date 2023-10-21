@@ -1,16 +1,20 @@
 body {
-    background: linear-gradient(to left top, #ad137f, #46949e);
-    background-size: cover;
+
+    flex-direction: column;
+    list-style-type: none;
+    padding: calc(1 * var(--spacing));
+    background: linear-gradient(to left top, #554545, #4e2d69) fixed;
 }
 
 div {
-    margin: auto;
-    top: 160px;
-    padding: 200px;
+    margin-top: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    top: 10px;
     width: 400px;
     font-size: 18px;
 
-    color: rgba(17, 85, 105, 0.8);
+    color: rgba(255, 255, 255, 0.8);
     transition: all 0.5s;
 }
 
@@ -18,7 +22,6 @@ div {
     width: 400px;
     padding: 10px;
     font-size: 14px;
-    
 }
 
 #title {
@@ -30,42 +33,51 @@ div {
     padding: 10px;
     font-size: 18px;
     outline: none;
-    background: linear-gradient(to left top, #6527a0, #22132e) fixed;
-    border-radius: 10px;
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    /*   background: linear-gradient(to left top, #ebf1f1, #22132e) fixed;  */
+
     color: rgba(28, 147, 163, 0.8);
     transition: all 0.5s;
-    
-}
 
-#form:hover {
-    border: 2px solid rgba(255, 255, 255, 0.5);
-}
-
-#form:focus {
-    border: 2px solid rgba(255, 255, 255, 0.5);
-    background: linear-gradient(to left top, #000, #4e2d69) fixed;
 }
 
 #button {
     width: 425px;
+    height: 60px;
     padding: 10px;
     margin-top: 10px;
-    font-size: 15px;
+    font-size: var(--font-size);
     font-weight: bold;
     outline: none;
-    background: linear-gradient(to left top, #6527a0, #7e07df) fixed;
-    border-radius: 10px;
-    border: 5px solid rgba(255, 255, 255, 0.2);
-    color: rgba(255, 255, 255, 0.8);
+
+
+    background-color: var(--primary);
+    color: var(--on-primary);
+
     transition: all 0.5s;
+
 }
 
 #button:hover {
-    border: 5px solid rgba(255, 255, 255, 0.5);
-    background: linear-gradient(to left top, #000, #8b5db0) fixed;
+    filter: brightness(80%);
 }
 
 #button:focus {
-    background: linear-gradient(to left top, #8b5db0, #000) fixed;
+    filter: brightness(120%);
+}
+
+
+/* !!! !!! !!! !!! !!! !!! !!! !!! !!! !!! !!! !!! !!! */
+
+
+
+input {
+    background: transparent;
+    border: 1px solid var(--text);
+    border-radius: 3px;
+    line-height: 30px;
+    font-size: var(--font-size);
+    margin: var(--spacing) 0;
+    max-width: 416px;
+    padding: calc(4 * var(--spacing));
+    width: 100%;
 }

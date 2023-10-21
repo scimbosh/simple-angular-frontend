@@ -1,4 +1,11 @@
 
+/* !!! */
+body {
+    padding: calc(1 * var(--spacing));
+    background: linear-gradient(to left top, #554545, #4e2d69) fixed;
+    /*background: linear-gradient(to left top, #a34fe9, #f1efef ) fixed;  */
+}
+
 button {
     border: none;
     background-color: var(--secondary);
@@ -12,7 +19,6 @@ button {
 
 }
 
-/* !!! */
 div.deleteItem {
     display: flex;
 }
@@ -23,6 +29,7 @@ button[type="submit"] {
     text-transform: uppercase;
     width: 100%;
 }
+
 
 li.row{
     position: relative;
@@ -56,7 +63,7 @@ form {
     padding: calc(4 * var(--spacing));
 }
 
-input {
+input{
     background: transparent;
     border: 1px solid var(--text);
     border-radius: 3px;
@@ -72,7 +79,7 @@ input[type="checkbox"] {
     height: 48px;
     margin: var(--spacing);
     width: 48px;
-
+    accent-color: 
 }
 
 ul {
@@ -96,35 +103,4 @@ span.textInRow{
     display: flex;
     align-items: center ; 
     font-size: 30px;
-    /* display: inline-block */
-    /* vertical-align: baseline; */
-    /* line-height: 210% */
 }
-
-
-
-/* 
-
-
-code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-
-
-li.completed {
-    text-decoration: line-through;
-}
-
-
-
-span {
-    flex: 1;
-    font-size: var(--font-size);
-    line-height: calc(48px + calc(2 * var(--spacing)));
-} 
-
-
-
-
-*/

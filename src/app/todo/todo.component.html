@@ -1,8 +1,11 @@
+
+<body>
 <div class="ToDoList">
 <!--Comment-->
 
-    <h1>ToDo list</h1>
+    
     <div class="addItem">
+        <h1>ToDo list</h1>
         <form (ngSubmit)="createTodo()" #todoForm="ngForm">
             <input [(ngModel)]="content" placeholder="Add a new todo content " class="addText" name="newTodo">
             <button type="submit" class="btn-success">ADD</button>
@@ -28,8 +31,9 @@
     <br>
     <br>
     <br>
-    <div class="getTodoList">
+    <div class="deleteItem">
         <button type="deleteAll" (click)="getToDoList()" class="deleteAll">getToDoList()</button>
     </div>
 
 </div>
+</body>
