@@ -13,7 +13,6 @@ export class AuthService {
 
     constructor(private httpClient: HttpClient, private router: Router) { }
 
-    //login(username: string, password: string) {
     login(user: User) {
         const _authToken = 'Basic ' + btoa(user.username + ':' + user.password)
         

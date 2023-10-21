@@ -20,7 +20,7 @@ export class TodoComponent implements OnInit {
     ngOnInit() { this.getToDoList() }
 
     createTodo() {
-        var injectTodo : Todo = new Todo;
+        var injectTodo: Todo = new Todo;
         injectTodo.content = this.content
         injectTodo.checked = this.checked
 
@@ -41,6 +41,7 @@ export class TodoComponent implements OnInit {
             error: (error => {
                 console.log('Error after /todo/add');
                 console.log(error);
+                this.getToDoList()
             })
         })
     }
@@ -51,14 +52,14 @@ export class TodoComponent implements OnInit {
                 console.log('/todo/list response received')
                 console.log(JSON.stringify(response))
                 console.log('map response')
-                this.toDoList = response
+                this.toDoList = response.sort((a: any, b: any) => a.id - b.id)
                 console.log(JSON.stringify(this.toDoList[0].id))
             })
         })
     }
 
     deleteTodo(todo: Todo) {
-        this.httpClient.delete(`${this.host}/todo/delete`, {
+        this.httpClient.delete(`${this.host}/todo`, {
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -78,28 +79,36 @@ export class TodoComponent implements OnInit {
                 if (indexOfObject !== -1) {
                     this.toDoList.splice(indexOfObject, 1);
                 }
+                this.getToDoList()
             })
         })
     }
 
-    deleteSelected(){
-        for(var todo of this.toDoList) {
+    deleteSelected() {
+        for (var todo of this.toDoList) {
             if (todo.checked === true) {
                 this.deleteTodo(todo)
             }
         }
     }
 
-
-    test() {
-        this.httpClient.get(`${this.host}/todo/list`).subscribe({
-            next: ((response: any) => {
-                console.log('/todo/list response received')
-                console.log(JSON.stringify(response))
+    updateCheckbox(todo: Todo) {
+        todo.checked = !todo.checked
+        this.httpClient.patch<Todo>(`${this.host}/todo`, todo, { headers: { 'Content-Type': 'application/json' } })
+            .subscribe({
+                next: ((response: any) => {
+                    console.log('parse response PATCH /todo')
+                    console.log(JSON.stringify(response))
+                    this.getToDoList()
+                }),
+                error: (error => {
+                    console.log('Error after PATCH /todo');
+                    console.log(error);
+                    todo.checked = !todo.checked
+                    this.getToDoList()
+                })
             })
-        })
     }
-
 
 
 }
