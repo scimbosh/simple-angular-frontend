@@ -18,14 +18,14 @@ export class AuthService {
         
         console.log(`username = ${user.username}, password = ${user.password} authToken = ${_authToken}`)
 
-        this.httpClient.get(`${this.host}/auth/login`, {
+        this.httpClient.get(`${this.host}/user/login`, {
             headers: {
                 'authorization': _authToken
             }
         }).subscribe(
             {
                 next: ((response: any) => {
-                    console.log('/auth/login response received')
+                    console.log('/user/login response received')
                     console.log(JSON.stringify(response))
                     if (response['name']) {
                         console.log('save authToken')

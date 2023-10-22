@@ -20,7 +20,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
         const authToken = this.authService.getAuthTokenFromCache();
         if (authToken !== null) {
-            if (!request.url.includes(`${this.host}/auth/login`)) {
+            if (!request.url.includes(`${this.host}/user/login`)) {
                 console.log(`interception token = ${authToken}`)
                 var authRequest = request.clone({ setHeaders: { Authorization: authToken } });
                 return next.handle(authRequest);
