@@ -13,14 +13,22 @@ import { environment } from 'src/environments/environment';
 export class AuthInterceptor implements HttpInterceptor {
 
     private host = environment.backendURL;
+    endpointsWithoutAuth: string[] = [
+        `${this.host}/user/login`,
+        `${this.host}/user/create`
+    ]
 
     constructor(private authService: AuthService) { }
 
     intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
-        const authToken = this.authService.getAuthTokenFromCache();
-        if (authToken !== null) {
-            if (!request.url.includes(`${this.host}/user/login`)) {
+
+
+        if ((!request.url.includes(`${this.host}/user/login`)) || (!request.url.includes(`${this.host}/user/create`))) {
+            const authToken = this.authService.getAuthTokenFromCache();
+            //if(this.endpointsWithoutAuth[request.url.includes])
+
+            if (authToken !== null) {
                 console.log(`interception token = ${authToken}`)
                 var authRequest = request.clone({ setHeaders: { Authorization: authToken } });
                 return next.handle(authRequest);

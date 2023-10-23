@@ -1,0 +1,47 @@
+<body>
+    <div class="registration">
+        <p id="title" type="text">REGISTRATION</p>
+
+        <br>
+        <label id="label" for="fname">Enter username</label>
+        <br>
+        <input [(ngModel)]="user.username" type="text" id="form" placeholder="LOGIN" />
+
+
+        <br>
+        <label id="label" for="fname">Enter password</label>
+        <br>
+        <input [(ngModel)]="user.password" id="form" placeholder="PASSWORD" />
+        <br>
+
+        <form>
+            <ul>
+                <li class="row" *ngFor="let role of roles; let number = index">
+                    <span class="textInRow">{{role}}</span>
+                </li>
+            </ul>
+        </form>
+
+        <h4>mat select</h4>
+        <mat-form-field>
+          <mat-label>Favorite animal</mat-label>
+          <mat-select [formControl]="animalControl" required>
+            <mat-option>--</mat-option>
+            <mat-option *ngFor="let animal of animals" [value]="animal">
+              {{animal.name}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="animalControl.hasError('required')">Please choose an animal</mat-error>
+          <mat-hint>{{animalControl.value?.sound}}</mat-hint>
+        </mat-form-field>
+
+
+
+
+        <br>
+        <button type="submit" id="button" (click)="createUser()">SUBMIT</button>
+        <br>
+        <p id="title" [hidden]="!errorIntercepted">THIS USERNAME EXIST</p>
+        <p id="title" [hidden]="!isUserCreated">USER SUCCESSFULLY CREATED</p>
+    </div>
+</body>

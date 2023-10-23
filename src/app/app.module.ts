@@ -9,12 +9,18 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TodoComponent } from './todo/todo.component';
 import { AuthInterceptor } from 'src/app/interceptor/auth.interceptor';
+import { RegistrationComponent } from './registration/registration.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatSelectModule} from '@angular/material/select';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    TodoComponent
+    TodoComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +28,10 @@ import { AuthInterceptor } from 'src/app/interceptor/auth.interceptor';
     HttpClientModule,
     FormsModule,
     BrowserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule, 
+    MatSelectModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
