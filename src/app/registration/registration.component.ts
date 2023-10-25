@@ -47,8 +47,8 @@ export class RegistrationComponent {
                     };
                     return tempRole;
                 });
-
             },
+
             error: (errorResponse: HttpErrorResponse) => {
                 console.error("Get roles - Response processing error")
                 this.roles = [];
@@ -74,8 +74,9 @@ export class RegistrationComponent {
                     this.errorIntercepted = true;
                 }
             },
+
             error: (errorResponse: HttpErrorResponse) => {
-                console.error("Сreate user - Response processing error")
+                console.error("Create user - Response processing error")
                 this.isUserCreated = false;
                 this.errorIntercepted = true;
                 this.user.username = undefined;

@@ -1,39 +1,38 @@
-
 <body>
-<div class="ToDoList">
-<!--Comment-->
+    <div class="ToDoList">
+        <!--Comment-->
 
-    
-    <div class="addItem">
-        <h1>ToDo list</h1>
-        <form (ngSubmit)="createTodo()" #todoForm="ngForm">
-            <input [(ngModel)]="content" placeholder="Add a new todo content " class="addText" name="newTodo">
-            <button type="submit" class="btn-success">ADD</button>
 
-        </form>
+        <div class="addItem">
+            <h1>ToDo list</h1>
+            <form (ngSubmit)="createTodo()" #todoForm="ngForm">
+                <input [(ngModel)]="content" placeholder="Add a new todo content " class="addText" name="newTodo">
+                <button type="submit" class="btn-success">ADD</button>
+
+            </form>
+        </div>
+
+        <ul>
+            <li class="row" *ngFor="let todo of toDoList; let number = index">
+                <input type="checkbox" [checked]="todo.checked" (change)="updateCheckbox(todo)" id="no" />
+                <span class="textInRow">{{todo.content}}</span>
+                <button type="deleteOne" (click)="deleteTodo(todo)" class="deleteOne">Delete</button>
+
+            </li>
+        </ul>
+        <br />
+        <div class="deleteItem">
+            <button type="deleteAll" (click)="deleteSelected()" class="deleteAll">DELETE ALL</button>
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="deleteItem">
+            <button type="deleteAll" (click)="getToDoList()" class="deleteAll">getToDoList()</button>
+        </div>
+
     </div>
-
-    <ul>
-        <li class="row" *ngFor="let todo of toDoList; let number = index">
-            <input type="checkbox" [checked]="todo.checked" (change)="updateCheckbox(todo)" id="no"/>
-            <span class="textInRow">{{todo.content}}</span>
-            <button type="deleteOne" (click)="deleteTodo(todo)" class="deleteOne">Delete</button>
-
-        </li>
-    </ul>
-    <br />
-    <div class="deleteItem">
-        <button type="deleteAll" (click)="deleteSelected()" class="deleteAll">DELETE ALL</button>
-    </div>
-    
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <div class="deleteItem">
-        <button type="deleteAll" (click)="getToDoList()" class="deleteAll">getToDoList()</button>
-    </div>
-
-</div>
 </body>

@@ -14,14 +14,14 @@
         <input [(ngModel)]="user.password" id="form" placeholder="PASSWORD" />
         <br>
 
-       <mat-form-field>
+        <mat-form-field>
             <mat-label>Roles</mat-label>
             <mat-select [formControl]="roleControl" multiple>
-              <mat-option *ngFor="let role of roles" [value]="role">{{role.localizationText}}</mat-option>
+                <mat-option *ngFor="let role of roles" [value]="role">{{role.localizationText}}</mat-option>
             </mat-select>
             <mat-error *ngIf="roleControl.hasError('required')">Please choose a role</mat-error>
-          </mat-form-field> 
-<!-- <mat-hint>{{roleControl2.value?.[0]?.name}}</mat-hint>  -->
+        </mat-form-field>
+        <!-- <mat-hint>{{roleControl2.value?.[0]?.name}}</mat-hint>  -->
 
 
         <br>

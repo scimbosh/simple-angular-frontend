@@ -22,8 +22,6 @@ export class AuthInterceptor implements HttpInterceptor {
 
     intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
-
-
         if ((!request.url.includes(`${this.host}/user/login`)) || (!request.url.includes(`${this.host}/user/create`))) {
             const authToken = this.authService.getAuthTokenFromCache();
             //if(this.endpointsWithoutAuth[request.url.includes])

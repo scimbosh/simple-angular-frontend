@@ -15,7 +15,7 @@ export class AuthService {
 
     login(user: User) {
         const _authToken = 'Basic ' + btoa(user.username + ':' + user.password)
-        
+
         console.log(`username = ${user.username}, password = ${user.password} authToken = ${_authToken}`)
 
         this.httpClient.get(`${this.host}/user/login`, {
