@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { User } from 'src/app/model/user/user';
 import { Role } from 'src/app/model/role/role';
@@ -29,7 +29,7 @@ export class RegistrationComponent {
 
     ngOnInit(): void { }
 
-    constructor(private userService: UserService, private http: HttpClient, private router: Router) {
+    constructor(private userService: UserService, private router: Router) {
         this.errorIntercepted = false
         this.getRoles()
     }
