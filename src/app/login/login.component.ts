@@ -28,6 +28,10 @@ export class LoginComponent {
         console.log(this.user.username, this.user.password)
         this.authService.login(this.user);
     }
+
+    goToRegistration(){
+        this.router.navigate(['/registration'])
+    }
 }
 
 
