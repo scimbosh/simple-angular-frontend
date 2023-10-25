@@ -13,8 +13,8 @@
         <br>
         <input [(ngModel)]="user.password" id="form" placeholder="PASSWORD" />
         <br>
-
-        <mat-form-field>
+        <br>
+        <mat-form-field class="dropdown">
             <mat-label>Roles</mat-label>
             <mat-select [formControl]="roleControl" multiple>
                 <mat-option *ngFor="let role of roles" [value]="role">{{role.localizationText}}</mat-option>

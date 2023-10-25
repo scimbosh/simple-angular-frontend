@@ -18,6 +18,10 @@ div {
     transition: all 0.5s;
 }
 
+mat-form-field {
+    width: 423px;
+}
+
 #label {
     width: 400px;
     padding: 10px;
