@@ -24,7 +24,7 @@ export class UserService {
     }
 
     getRoles(): Observable<User | HttpErrorResponse>{
-        return this.httpClient.get<User | HttpErrorResponse>(`${this.host}/user/create`,
+        return this.httpClient.get<User | HttpErrorResponse>(`${this.host}/user/roles`,
         {
             headers: {
                 'Content-Type': 'application/json'

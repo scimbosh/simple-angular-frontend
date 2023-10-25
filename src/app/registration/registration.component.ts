@@ -2,14 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { User } from 'src/app/model/user/user';
+import { Role } from 'src/app/model/role/role';
 import { UserService } from '../userservice/user.service';
 import { FormControl, Validators } from '@angular/forms';
-
-
-interface Animal {
-    name: string;
-    sound: string;
-  }
 
 @Component({
     selector: 'app-registration',
@@ -17,24 +12,13 @@ interface Animal {
     styleUrls: ['./registration.component.css']
 
 })
+
 export class RegistrationComponent {
 
-
-    animalControl = new FormControl<Animal | null>(null, Validators.required);
-    selectFormControl = new FormControl('', Validators.required);
-    animals: Animal[] = [
-      {name: 'Dog', sound: 'Woof!'},
-      {name: 'Cat', sound: 'Meow!'},
-      {name: 'Cow', sound: 'Moo!'},
-      {name: 'Fox', sound: 'Wa-pa-pa-pa-pa-pa-pow!'},
-    ];
-
+    roleControl = new FormControl<Role[] | null>(null, Validators.required);
     isUserCreated: boolean = false;
     errorIntercepted: boolean;
-    roles: string[] = [
-        'test1',
-        'test2'
-    ];
+    roles: Role[] = [];
 
     user: User = {
         id: undefined,
@@ -50,35 +34,48 @@ export class RegistrationComponent {
         this.getRoles()
     }
 
-    getRoles(){
+    getRoles() {
         console.log("getRole")
         this.userService.getRoles().subscribe({
-            next: (response: any) => {    
-                console.log(`getRoles = ${JSON.stringify(response)}`)
-                this.roles = response;
+            next: (response: any) => {
+                console.log(`Get roles result = ${JSON.stringify(response)}`)
+
+                this.roles = response.map((item: string) => {
+                    var tempRole: Role = {
+                        name: item?.toString(),
+                        localizationText: item.replace("ROLE_", '')
+                    };
+                    return tempRole;
+                });
+
             },
             error: (errorResponse: HttpErrorResponse) => {
+                console.error("Get roles - Response processing error")
                 this.roles = [];
             }
         })
     }
 
+
     createUser() {
-        console.log(this.user);
+        this.user.roles = this.roleControl.value?.map((item: any) => item.name.toString())
+        console.log('create user' + this.user);
         this.userService.createUser(this.user).subscribe({
             next: (response: any) => {
-                console.log('response = ' + JSON.stringify(response))
+                console.log('Create user response = ' + JSON.stringify(response))
                 if (response['username']) {
                     this.isUserCreated = true;
                     this.errorIntercepted = false;
-                    console.log('redirect to /login')
+                    console.log('Redirect to /login')
                     this.router.navigate(['/login'])
                 } else {
+                    console.error("Сreate user - Unhandled error")
                     this.isUserCreated = false;
                     this.errorIntercepted = true;
                 }
             },
             error: (errorResponse: HttpErrorResponse) => {
+                console.error("Сreate user - Response processing error")
                 this.isUserCreated = false;
                 this.errorIntercepted = true;
                 this.user.username = undefined;
