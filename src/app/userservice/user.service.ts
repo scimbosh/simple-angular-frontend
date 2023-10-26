@@ -31,4 +31,25 @@ export class UserService {
             })
     }
 
+
+    //Need implement in backend
+    getUsers(): Observable<User[] | HttpErrorResponse> {
+        return this.httpClient.get<User[] | HttpErrorResponse>(`${this.host}/user`,  //CHANGE IT
+            {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+    }
+
+    //Need implement in backend
+    updateUser(user: User): Observable<User | HttpErrorResponse> {
+        return this.httpClient.patch<User | HttpErrorResponse>(`${this.host}/user/list`, user,
+            {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+    }
+
 }

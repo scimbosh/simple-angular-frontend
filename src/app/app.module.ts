@@ -13,6 +13,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { ControlComponent } from './control/control.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     AppComponent,
     LoginComponent,
     TodoComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    ControlComponent
   ],
   imports: [
     BrowserModule,
