@@ -1,6 +1,5 @@
 <body>
     <div class="ToDoList">
-
         <div class="addItem">
             <h1>ToDo list</h1>
             <form (ngSubmit)="createTodo()" #todoForm="ngForm">
@@ -8,7 +7,6 @@
                 <button type="submit" class="btn-success">ADD</button>
             </form>
         </div>
-
         <ul>
             <li class="row" *ngFor="let todo of toDoList; let number = index">
                 <input type="checkbox" [checked]="todo.checked" (change)="updateCheckbox(todo)" id="no" />
@@ -17,22 +15,17 @@
 
             </li>
         </ul>
-
         <br />
-
         <div class="deleteItem">
             <button type="deleteAll" (click)="deleteSelected()" class="deleteAll">DELETE ALL</button>
         </div>
-
         <br>
         <br>
         <br>
         <br>
         <br>
-
         <div class="deleteItem">
             <button type="deleteAll" (click)="goToUserList()" class="deleteAll">GO TO USER LIST</button>
         </div>
-
     </div>
 </body>

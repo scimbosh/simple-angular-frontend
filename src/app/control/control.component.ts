@@ -16,7 +16,6 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class ControlComponent {
 
-
     roleControl = new FormControl<Role[] | null>(null, Validators.required);
     roles: Role[] = [];
     isPasswordHide = true;

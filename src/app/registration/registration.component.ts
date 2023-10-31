@@ -38,7 +38,6 @@ export class RegistrationComponent {
         this.userService.getRoles().subscribe({
             next: (response: any) => {
                 console.log(`Get roles result = ${JSON.stringify(response)}`)
-
                 this.roles = response.map((item: string) => {
                     var tempRole: Role = {
                         name: item?.toString(),
@@ -47,14 +46,12 @@ export class RegistrationComponent {
                     return tempRole;
                 });
             },
-
             error: (errorResponse: HttpErrorResponse) => {
                 console.error("Get roles - Response processing error")
                 this.roles = [];
             }
         })
     }
-
 
     createUser() {
         this.user.roles = this.roleControl.value?.map((item: any) => item.name.toString())
