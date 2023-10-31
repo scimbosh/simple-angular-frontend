@@ -11,8 +11,10 @@
         <br>
         <label id="label" for="fname">Enter password</label>
         <br>
+
         <input [(ngModel)]="user.password" id="form" placeholder="PASSWORD" />
         <br>
+
         <br>
         <mat-form-field class="dropdown">
             <mat-label>Roles</mat-label>
@@ -21,8 +23,6 @@
             </mat-select>
             <mat-error *ngIf="roleControl.hasError('required')">Please choose a role</mat-error>
         </mat-form-field>
-        <!-- <mat-hint>{{roleControl2.value?.[0]?.name}}</mat-hint>  -->
-
 
         <br>
         <button type="submit" id="button" (click)="createUser()">SUBMIT</button>

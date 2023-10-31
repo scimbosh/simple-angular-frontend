@@ -3,13 +3,11 @@
         <p id="title" type="text">LOGIN</p>
 
         <br>
-        <!-- <label for="fname">Login:</label>-->
         <input [(ngModel)]="user.username" type="text" id="form" placeholder="LOGIN" />
         <br>
         <label id="label" for="fname">Default login: user</label>
         <br>
 
-        <!-- <label for="fname">Password:</label>-->
         <input [(ngModel)]="user.password" id="form" placeholder="PASSWORD" />
         <br>
         <label id="label" for="fname">Default password: password</label>
@@ -19,7 +17,7 @@
         <button type="submit" id="button" (click)="login()">ENTER</button>
         <br>
         <br>
-        <button type="submit" id="button" (click)="goToRegistration()">Sign up</button>
+        <button type="submit" id="button" (click)="goToRegistration()">SIGN UP</button>
         <br>
         <p id="title" [hidden]="true">Authorization Error</p>
     </div>

@@ -1,14 +1,11 @@
 <body>
     <div class="ToDoList">
-        <!--Comment-->
-
 
         <div class="addItem">
             <h1>ToDo list</h1>
             <form (ngSubmit)="createTodo()" #todoForm="ngForm">
                 <input [(ngModel)]="content" placeholder="Add a new todo content " class="addText" name="newTodo">
                 <button type="submit" class="btn-success">ADD</button>
-
             </form>
         </div>
 
@@ -20,7 +17,9 @@
 
             </li>
         </ul>
+
         <br />
+
         <div class="deleteItem">
             <button type="deleteAll" (click)="deleteSelected()" class="deleteAll">DELETE ALL</button>
         </div>
@@ -30,8 +29,9 @@
         <br>
         <br>
         <br>
+
         <div class="deleteItem">
-            <button type="deleteAll" (click)="getToDoList()" class="deleteAll">getToDoList()</button>
+            <button type="deleteAll" (click)="goToUserList()" class="deleteAll">GO TO USER LIST</button>
         </div>
 
     </div>

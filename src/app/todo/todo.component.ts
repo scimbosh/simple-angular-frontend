@@ -2,6 +2,7 @@ import { Component, Inject, OnInit, Optional } from '@angular/core';
 import { Todo } from 'src/app/model/note/todo';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-todo',
@@ -15,7 +16,7 @@ export class TodoComponent implements OnInit {
     checked = false;
     toDoList: Todo[] = []
 
-    constructor(private httpClient: HttpClient) { }
+    constructor(private httpClient: HttpClient, private router: Router) { }
 
     ngOnInit() { this.getToDoList() }
 
@@ -107,8 +108,12 @@ export class TodoComponent implements OnInit {
                     todo.checked = !todo.checked
                     this.getToDoList()
                 })
-            })
+            }
+        )
     }
 
+    goToUserList(){
+        this.router.navigate(['/control'])
+    }
 
 }

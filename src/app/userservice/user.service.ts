@@ -19,7 +19,8 @@ export class UserService {
                 headers: {
                     'Content-Type': 'application/json'
                 }
-            })
+            }
+        )
     }
 
     getRoles(): Observable<User | HttpErrorResponse> {
@@ -28,28 +29,39 @@ export class UserService {
                 headers: {
                     'Content-Type': 'application/json'
                 }
-            })
+            }
+        )
     }
 
-
-    //Need implement in backend
     getUsers(): Observable<User[] | HttpErrorResponse> {
-        return this.httpClient.get<User[] | HttpErrorResponse>(`${this.host}/user`,  //CHANGE IT
+        return this.httpClient.get<User[] | HttpErrorResponse>(`${this.host}/user/list`,
             {
                 headers: {
                     'Content-Type': 'application/json'
                 }
-            })
+            }
+        )
     }
 
-    //Need implement in backend
     updateUser(user: User): Observable<User | HttpErrorResponse> {
-        return this.httpClient.patch<User | HttpErrorResponse>(`${this.host}/user/list`, user,
+        return this.httpClient.patch<User | HttpErrorResponse>(`${this.host}/user`, user,
             {
                 headers: {
                     'Content-Type': 'application/json'
                 }
-            })
+            }
+        )
+    }
+
+    deleteUser(user: User): Observable<User | HttpErrorResponse> {
+        return this.httpClient.delete<User | HttpErrorResponse>(`${this.host}/user`,
+            {
+                body: user,
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }
+        )
     }
 
 }

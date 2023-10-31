@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { TodoComponent } from './todo/todo.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { ControlComponent } from './control/control.component';
 
 //mapping address and component
 const routes: Routes = [
@@ -11,6 +12,7 @@ const routes: Routes = [
     { path: 'logout', component: LoginComponent },
     { path: 'todo', component: TodoComponent },
     { path: 'registration', component: RegistrationComponent },
+    { path: 'control', component: ControlComponent },
 ];
 
 @NgModule({

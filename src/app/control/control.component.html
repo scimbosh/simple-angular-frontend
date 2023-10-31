@@ -1,1 +1,55 @@
-<p>control works!</p>
+<!-- 
+-->
+
+<body>
+    <div class="main-container">
+        <p>
+            <mat-toolbar color="primary">
+                <span>User list:</span>
+            </mat-toolbar>
+        </p>
+        <div *ngFor="let user of users; let number = index">
+            <mat-expansion-panel hideToggle>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        {{user.username}}
+                    </mat-panel-title>
+                    <mat-panel-description disable>
+                        click to expand
+                    </mat-panel-description>
+                    <button color="warn" class="button-delete" (click)="deleteUser(user)" mat-raised-button>Delete
+                        user</button>
+                </mat-expansion-panel-header>
+                <div>
+                    <mat-form-field class="expansion-content" hintLabel="Max 10 characters">
+                        <mat-label>"Enter new name"</mat-label>
+                        <input matInput #input maxlength="15" [(ngModel)]="user.username"
+                            placeholder="{{user.username}}">
+                        <mat-hint align="end">{{input.value.length}}/15</mat-hint>
+                    </mat-form-field>
+
+                    <mat-form-field class="expansion-content">
+                        <mat-label>Change password?</mat-label>
+                        <input [(ngModel)]="user.password" matInput [type]="isPasswordHide ? 'password' : 'text'">
+                        <button mat-icon-button matSuffix (click)="isPasswordHide = !isPasswordHide" [attr.aria-label]="'Hide password'"
+                            [attr.aria-pressed]="isPasswordHide">
+                            <mat-icon fontIcon="remove_red_eye">{{isPasswordHide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                    </mat-form-field>
+
+                    <mat-form-field class="expansion-content">
+                        <mat-label>Roles</mat-label>
+                        <mat-select [(ngModel)]="user.roles" multiple>
+                            <mat-option *ngFor="let role of roles"
+                                [value]="role.name">{{role.localizationText}}</mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="roleControl.hasError('required')">Please choose a role</mat-error>
+                    </mat-form-field>
+                    <button class="expansion-content-button-update" color="primary" (click)="updateUser(user)"
+                        mat-raised-button>Update
+                        user</button>
+                </div>
+            </mat-expansion-panel>
+        </div>
+    </div>
+</body>
