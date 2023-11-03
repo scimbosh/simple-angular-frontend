@@ -5,8 +5,8 @@ Node: 18.17.1
 Package Manager: npm 9.6.7
 
 Angular: 16.2.4
-... animations, common, compiler, compiler-cli, core, forms
-... platform-browser, platform-browser-dynamic, router     
+animations, common, compiler, compiler-cli, core, forms
+platform-browser, platform-browser-dynamic, router     
 
 Package                         Version
 ---------------------------------------------------------  
