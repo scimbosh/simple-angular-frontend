@@ -40,9 +40,21 @@ export class TodoComponent implements OnInit {
         this.todoService.createToDo(this.todo).subscribe({
             next: ((response: any) => {
                 this.getToDoList()
-
             }),
             error: (error => {
+                this.getToDoList()
+            })
+        })
+    }
+
+    updateCheckbox(todo: Todo) {
+        todo.checked = !todo.checked
+        this.todoService.updateToDo(todo).subscribe({
+            next: ((response: any) => {
+                this.getToDoList()
+            }),
+            error: (error => {
+                todo.checked = !todo.checked
                 this.getToDoList()
             })
         })
@@ -75,24 +87,6 @@ export class TodoComponent implements OnInit {
     }
 
 
-    updateCheckbox(todo: Todo) {
-        todo.checked = !todo.checked
-        this.httpClient.patch<Todo>(`${this.host}/todo`, todo, { headers: { 'Content-Type': 'application/json' } })
-            .subscribe({
-                next: ((response: any) => {
-                    console.log('parse response PATCH /todo')
-                    console.log(JSON.stringify(response))
-                    this.getToDoList()
-                }),
-                error: (error => {
-                    console.log('Error after PATCH /todo');
-                    console.log(error);
-                    todo.checked = !todo.checked
-                    this.getToDoList()
-                })
-            }
-            )
-    }
 
     deleteSelected() {
         for (var todo of this.toDoList) {

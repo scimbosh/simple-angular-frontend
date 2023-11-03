@@ -18,7 +18,7 @@ export class TodoService {
         return this.httpClient.get<Todo[]>(`${this.host}/todo/list`)
     }
 
-    createToDo(todo: Todo): Observable<Todo| HttpErrorResponse> {
+    createToDo(todo: Todo): Observable<Todo | HttpErrorResponse> {
         return this.httpClient.post<Todo>(`${this.host}/todo/add`,
             todo,
             {
@@ -29,7 +29,17 @@ export class TodoService {
         )
     }
 
-    updateToDo() { }
+    updateToDo(todo: Todo): Observable<Todo | HttpErrorResponse> {
+        return this.httpClient.patch<Todo>(`${this.host}/todo`,
+            todo,
+            {
+                headers:
+                {
+                    'Content-Type': 'application/json'
+                }
+            }
+        )
+    }
 
     deleteToDo() { }
 
