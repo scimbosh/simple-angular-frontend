@@ -34,10 +34,8 @@ export class RegistrationComponent {
     }
 
     getRoles() {
-        console.log("getRole")
         this.userService.getRoles().subscribe({
             next: (response: any) => {
-                console.log(`Get roles result = ${JSON.stringify(response)}`)
                 this.roles = response.map((item: string) => {
                     var tempRole: Role = {
                         name: item?.toString(),
@@ -47,7 +45,6 @@ export class RegistrationComponent {
                 });
             },
             error: (errorResponse: HttpErrorResponse) => {
-                console.error("Get roles - Response processing error")
                 this.roles = [];
             }
         })
@@ -55,14 +52,11 @@ export class RegistrationComponent {
 
     createUser() {
         this.user.roles = this.roleControl.value?.map((item: any) => item.name.toString())
-        console.log('create user' + this.user);
         this.userService.createUser(this.user).subscribe({
             next: (response: any) => {
-                console.log('Create user response = ' + JSON.stringify(response))
                 if (response['username']) {
                     this.isUserCreated = true;
                     this.errorIntercepted = false;
-                    console.log('Redirect to /login')
                     this.router.navigate(['/login'])
                 } else {
                     console.error("Сreate user - Unhandled error")

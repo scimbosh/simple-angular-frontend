@@ -24,7 +24,6 @@ export class LoginComponent {
     ngOnInit(): void { }
 
     login() {
-        console.log(this.user.username, this.user.password)
         this.authService.login(this.user);
     }
 

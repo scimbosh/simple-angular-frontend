@@ -15,9 +15,6 @@ export class AuthService {
 
     login(user: User) {
         const _authToken = 'Basic ' + btoa(user.username + ':' + user.password)
-
-        console.log(`username = ${user.username}, password = ${user.password} authToken = ${_authToken}`)
-
         this.httpClient.get(`${this.host}/user/login`, {
             headers: {
                 'authorization': _authToken
@@ -25,29 +22,23 @@ export class AuthService {
         }).subscribe(
             {
                 next: ((response: any) => {
-                    console.log('/user/login response received')
-                    console.log(JSON.stringify(response))
                     if (response['name']) {
-                        console.log('save authToken')
                         sessionStorage.setItem('authToken', _authToken);
-                        console.log('redirect')
                         this.router.navigate(['/todo'])
                     } else {
-                        console.log('username not found')
+                        console.error('username not found')
                     }
                 }),
 
                 error: (error => {
-                    console.log(error);
+                    console.error(error);
                 })
             }
         )
     }
 
     getAuthTokenFromCache(): string | null {
-        console.log('Get token from session storage')
         var token = sessionStorage.getItem('authToken');
-        console.log(JSON.stringify(token));
         return token;
     }
 
