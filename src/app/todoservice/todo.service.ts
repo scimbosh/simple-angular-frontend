@@ -13,7 +13,6 @@ export class TodoService {
 
     constructor(private httpClient: HttpClient) { }
 
-
     getToDoList(): Observable<Todo[] | HttpErrorResponse> {
         return this.httpClient.get<Todo[]>(`${this.host}/todo/list`)
     }
@@ -41,7 +40,14 @@ export class TodoService {
         )
     }
 
-    deleteToDo() { }
+    deleteToDo(todo: Todo): Observable<Todo | HttpErrorResponse> {
+        return this.httpClient.delete<Todo | HttpErrorResponse>(`${this.host}/todo`, {
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: todo
+        })
+    }
 
 
 }

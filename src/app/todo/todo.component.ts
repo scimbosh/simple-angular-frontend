@@ -13,12 +13,12 @@ import { TodoService } from 'src/app/todoservice/todo.service';
 export class TodoComponent implements OnInit {
 
     private host = environment.backendURL;
+    toDoList: Todo[] = [];
     todo: Todo = {
         id: undefined,
         content: undefined,
         checked: false
-    }
-    toDoList: Todo[] = []
+    };
 
     constructor(
         private httpClient: HttpClient,
@@ -61,32 +61,16 @@ export class TodoComponent implements OnInit {
     }
 
     deleteTodo(todo: Todo) {
-        this.httpClient.delete(`${this.host}/todo`, {
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: todo
-        }).subscribe({
+        this.todoService.deleteToDo(todo).subscribe({
             next: ((response: any) => {
-                console.log("parse response /todo/delete ")
-                console.log(`response.status = ${response.status} `)
-                console.log(JSON.stringify(response))
-
-                const indexOfObject = this.toDoList.findIndex((item) => {
-                    return item.id === todo.id;
-                });
-
-                console.log(indexOfObject);
-
-                if (indexOfObject !== -1) {
-                    this.toDoList.splice(indexOfObject, 1);
-                }
+                this.getToDoList()
+            }),
+            error: (error => {
+                todo.checked = !todo.checked
                 this.getToDoList()
             })
         })
     }
-
-
 
     deleteSelected() {
         for (var todo of this.toDoList) {
@@ -95,8 +79,6 @@ export class TodoComponent implements OnInit {
             }
         }
     }
-
-
 
     goToUserList() {
         this.router.navigate(['/control'])
