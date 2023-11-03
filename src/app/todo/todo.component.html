@@ -3,7 +3,7 @@
         <div class="addItem">
             <h1>ToDo list</h1>
             <form (ngSubmit)="createTodo()" #todoForm="ngForm">
-                <input [(ngModel)]="content" placeholder="Add a new todo content " class="addText" name="newTodo">
+                <input [(ngModel)]="todo.content" placeholder="Add a new todo content " class="addText" name="newTodo">
                 <button type="submit" class="btn-success">ADD</button>
             </form>
         </div>

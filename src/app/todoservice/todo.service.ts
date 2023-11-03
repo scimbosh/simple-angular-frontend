@@ -1,4 +1,4 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Todo } from 'src/app/model/note/todo';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
@@ -13,15 +13,21 @@ export class TodoService {
 
     constructor(private httpClient: HttpClient) { }
 
-    ngOnInit() { 
-        this.getToDoList() 
-    }
 
     getToDoList(): Observable<Todo[] | HttpErrorResponse> {
         return this.httpClient.get<Todo[]>(`${this.host}/todo/list`)
     }
 
-    createToDo() { }
+    createToDo(todo: Todo): Observable<Todo| HttpErrorResponse> {
+        return this.httpClient.post<Todo>(`${this.host}/todo/add`,
+            todo,
+            {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }
+        )
+    }
 
     updateToDo() { }
 

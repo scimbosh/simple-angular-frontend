@@ -13,8 +13,11 @@ import { TodoService } from 'src/app/todoservice/todo.service';
 export class TodoComponent implements OnInit {
 
     private host = environment.backendURL;
-    content = "";
-    checked = false;
+    todo: Todo = {
+        id: undefined,
+        content: undefined,
+        checked: false
+    }
     toDoList: Todo[] = []
 
     constructor(
@@ -33,29 +36,13 @@ export class TodoComponent implements OnInit {
         })
     }
 
-
     createTodo() {
-        var injectTodo: Todo = new Todo;
-        injectTodo.content = this.content
-        injectTodo.checked = this.checked
-
-        this.httpClient.post(`${this.host}/todo/add`,
-            injectTodo,
-            {
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            }
-        ).subscribe({
+        this.todoService.createToDo(this.todo).subscribe({
             next: ((response: any) => {
-                console.log('parse response /todo/add')
-                console.log(JSON.stringify(response))
                 this.getToDoList()
 
             }),
             error: (error => {
-                console.log('Error after /todo/add');
-                console.log(error);
                 this.getToDoList()
             })
         })
@@ -87,13 +74,6 @@ export class TodoComponent implements OnInit {
         })
     }
 
-    deleteSelected() {
-        for (var todo of this.toDoList) {
-            if (todo.checked === true) {
-                this.deleteTodo(todo)
-            }
-        }
-    }
 
     updateCheckbox(todo: Todo) {
         todo.checked = !todo.checked
@@ -113,6 +93,16 @@ export class TodoComponent implements OnInit {
             }
             )
     }
+
+    deleteSelected() {
+        for (var todo of this.toDoList) {
+            if (todo.checked === true) {
+                this.deleteTodo(todo)
+            }
+        }
+    }
+
+
 
     goToUserList() {
         this.router.navigate(['/control'])
