@@ -2,12 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/model/user/user';
 import { Role } from 'src/app/model/role/role';
-import { UserService } from '../userservice/user.service';
+import { UserService } from 'src/app/userservice/user.service';
 import { FormControl, Validators } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
-
-
-
 
 @Component({
     selector: 'app-control',
@@ -44,7 +41,6 @@ export class ControlComponent {
                 console.log(JSON.stringify(response))
                 this.users = response.sort((a: any, b: any) => a.id - b.id)
             },
-
             error: (errorResponse: HttpErrorResponse) => {
                 console.error("Update user - Response processing error")
                 this.errorFlag = true
@@ -72,7 +68,6 @@ export class ControlComponent {
         } else {
             console.error("User is null")
         }
-
     }
 
     getRoles() {
@@ -95,7 +90,7 @@ export class ControlComponent {
         })
     }
 
-    deleteUser(user: User) { 
+    deleteUser(user: User) {
         console.log("Delete user")
         this.userService.deleteUser(user).subscribe({
             next: (response: any) => {
@@ -107,11 +102,7 @@ export class ControlComponent {
                 this.roles = [];
             }
         })
-
     }
-
-
-
 
 
 

@@ -1,0 +1,31 @@
+import { Injectable, OnInit } from '@angular/core';
+import { Todo } from 'src/app/model/note/todo';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+import { Observable } from 'rxjs';
+
+@Injectable({
+    providedIn: 'root'
+})
+export class TodoService {
+
+    private host = environment.backendURL;
+
+    constructor(private httpClient: HttpClient) { }
+
+    ngOnInit() { 
+        this.getToDoList() 
+    }
+
+    getToDoList(): Observable<Todo[] | HttpErrorResponse> {
+        return this.httpClient.get<Todo[]>(`${this.host}/todo/list`)
+    }
+
+    createToDo() { }
+
+    updateToDo() { }
+
+    deleteToDo() { }
+
+
+}

@@ -1,8 +1,9 @@
-import { Component, Inject, OnInit, Optional } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Todo } from 'src/app/model/note/todo';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
+import { TodoService } from 'src/app/todoservice/todo.service';
 
 @Component({
     selector: 'app-todo',
@@ -16,9 +17,22 @@ export class TodoComponent implements OnInit {
     checked = false;
     toDoList: Todo[] = []
 
-    constructor(private httpClient: HttpClient, private router: Router) { }
+    constructor(
+        private httpClient: HttpClient,
+        private router: Router,
+        private todoService: TodoService
+    ) { }
 
     ngOnInit() { this.getToDoList() }
+
+    getToDoList() {
+        this.todoService.getToDoList().subscribe({
+            next: ((response: any) => {
+                this.toDoList = response.sort((a: any, b: any) => a.id - b.id)
+            })
+        })
+    }
+
 
     createTodo() {
         var injectTodo: Todo = new Todo;
@@ -43,18 +57,6 @@ export class TodoComponent implements OnInit {
                 console.log('Error after /todo/add');
                 console.log(error);
                 this.getToDoList()
-            })
-        })
-    }
-
-    getToDoList() {
-        this.httpClient.get<Todo[]>(`${this.host}/todo/list`).subscribe({
-            next: ((response: any) => {
-                console.log('/todo/list response received')
-                console.log(JSON.stringify(response))
-                console.log('map response')
-                this.toDoList = response.sort((a: any, b: any) => a.id - b.id)
-                console.log(JSON.stringify(this.toDoList[0].id))
             })
         })
     }
@@ -109,10 +111,10 @@ export class TodoComponent implements OnInit {
                     this.getToDoList()
                 })
             }
-        )
+            )
     }
 
-    goToUserList(){
+    goToUserList() {
         this.router.navigate(['/control'])
     }
 
