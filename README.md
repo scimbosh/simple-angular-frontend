@@ -1,5 +1,7 @@
 # SimpleAngularFrontend
 
+Backend application here [simple-spring-backend](https://github.com/scimbosh/simple-spring-backend).
+
 Angular CLI: 16.2.1
 Node: 18.17.1
 Package Manager: npm 9.6.7
