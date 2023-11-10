@@ -1,0 +1,4 @@
+{
+    "port": 4200,
+    "files": ["./dist/**.{html,htm,css,js}"]
+  }
