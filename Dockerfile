@@ -6,7 +6,8 @@ LABEL name="simple-angular-frontend" \
 ARG PROJECT_NAME=simple-angular-frontend
 
 WORKDIR /opt/app
-RUN npm install --global lite-server
-RUN npm install -g @angular/cli
+RUN npm install -g @angular/cli@16.2.1
+RUN sudo apt update
+RUN sudo apt install iputils-ping -y
 EXPOSE 4200/tcp
 ENTRYPOINT ["pwd"]
