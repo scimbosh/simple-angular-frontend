@@ -10,5 +10,8 @@ RUN apt update
 RUN npm install -g typescript@5.1.6
 RUN npm install -g @angular/cli@16.2.1
 RUN apt install iputils-ping -y
+EXPOSE 80/tcp
+EXPOSE 443/tcp
 EXPOSE 4200/tcp
-ENTRYPOINT ["pwd"]
+EXPOSE 8080/tcp
+ENTRYPOINT ["npm", "install" ]
