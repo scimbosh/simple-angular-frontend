@@ -15,6 +15,17 @@
 		},
 		"ghcr.io/devcontainers/features/git:1": {},
 		"ghcr.io/devcontainers-contrib/features/curl-apt-get:1": {}
+	},
+	"customizations": {
+		"Angular.ng-template": {},
+		"streetsidesoftware.code-spell-checker": {},
+		"codespaces": {},
+		"dbaeumer.vscode-eslint": {},
+		"VisualStudioExptTeam.vscodeintellicode": {},
+		"VisualStudioExptTeam.intellicode-api-usage-examples": {},
+		"eamodio.gitlens": {},
+		"stylelint.vscode-stylelint": {},
+		"esbenp.prettier-vscode": {}
 	}
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
