@@ -16,7 +16,6 @@
 		"ghcr.io/devcontainers/features/git:1": {},
 		"ghcr.io/devcontainers-contrib/features/curl-apt-get:1": {}
 	},
-	,
 	"customizations": {
 		"vscode": {
 			"extensions": [
