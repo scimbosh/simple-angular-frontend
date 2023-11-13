@@ -1,3 +1,5 @@
+
+#This build is for use in devcontainer
 FROM node:18.17.1 as build
 
 ARG PROJECT_NAME=simple-angular-frontend
@@ -17,12 +19,12 @@ RUN apt install iputils-ping -y
 
 COPY ./ ./
 RUN npm install
-RUN ng build --configuration=production
-RUN rm -rf node_modules src *.json *.iml .gitignore .angular .editorconfig .idea .vscode
+#RUN ng build --configuration=production
+#RUN rm -rf node_modules src *.json *.iml .gitignore .angular .editorconfig .idea .vscode .git
 
 COPY ${SERVER_CONFIG} ./${BUILD_FILES}
 WORKDIR /opt/app/${BUILD_FILES}
 
 EXPOSE 4200/tcp
 
-ENTRYPOINT ["lite-server", "-c", "docker-bs-config.json"]
+#ENTRYPOINT ["lite-server", "-c", "docker-bs-config.json"]
