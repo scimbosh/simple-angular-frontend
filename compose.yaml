@@ -12,6 +12,6 @@ networks:
   simple-app-subnet:
     name: simple-app-subnet
     ipam:
-      driver: bridge
+      driver: default
       config:
         - subnet: "172.18.0.0/16" 
