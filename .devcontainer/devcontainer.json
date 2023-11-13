@@ -3,8 +3,15 @@
 {
 	"name": "dev-container-angular-app ",
 	"dockerComposeFile": [
-        "../compose.yaml"
+        "compose.yaml"
     ],
+	"service": "app",
+	// "build": {
+	// 	// Sets the run context to one level up instead of the .devcontainer folder.
+	// 	"context": "..",
+	// 	// Update the 'dockerFile' property if you aren't using the standard 'Dockerfile' filename.
+	// 	"dockerfile": "../Dockerfile"
+	// },
 	"features": {
 		"ghcr.io/eliises/devcontainer-features/devcontainers-cli:1": {
 			"version": "latest",
