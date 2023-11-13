@@ -3,7 +3,7 @@
 {
 	"name": "dev-container-angular-app ",
 	"dockerComposeFile": [
-        "compose.yaml"
+        "../compose.yaml"
     ],
 	"service": "app",
 	// "build": {
