@@ -1,0 +1,16 @@
+services:
+  web:
+    build: .
+    ports:
+      - "4200:4200"
+    networks:
+      simple-app-subnet:
+        ipv4_address: 172.18.0.11
+
+networks:
+  simple-app-subnet:
+    name: simple-app-subnet
+    ipam:
+      driver: bridge
+      config:
+        - subnet: "172.18.0.0/16" 
