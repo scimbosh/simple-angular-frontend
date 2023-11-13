@@ -1,0 +1,19 @@
+services:
+  simple-angular-frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: simple-angular-frontend
+    ports:
+      - "4200:4200"
+    networks:
+      simple-app-subnet:
+        ipv4_address: 172.18.0.22
+
+networks:
+  simple-app-subnet:
+    name: simple-app-subnet
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.18.0.0/16" 
