@@ -1,7 +1,8 @@
 services:
-  web:
-    build: .
-    context: .
+  simple-angular-frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: simple-angular-frontend
     ports:
       - "4200:4200"
