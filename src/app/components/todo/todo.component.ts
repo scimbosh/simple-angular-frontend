@@ -3,7 +3,7 @@ import { Todo } from 'src/app/model/note/todo';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
-import { TodoService } from 'src/app/todoservice/todo.service';
+import { TodoService } from 'src/app/services/todoservice/todo.service';
 
 @Component({
     selector: 'app-todo',

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/model/user/user';
 import { Role } from 'src/app/model/role/role';
-import { UserService } from 'src/app/userservice/user.service';
+import { UserService } from 'src/app/services/userservice/user.service';
 import { FormControl, Validators } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
 

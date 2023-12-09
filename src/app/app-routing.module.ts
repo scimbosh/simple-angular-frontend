@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './login/login.component';
-import { TodoComponent } from './todo/todo.component';
-import { RegistrationComponent } from './registration/registration.component';
-import { ControlComponent } from './control/control.component';
+import { LoginComponent } from './components/login/login.component';
+import { TodoComponent } from './components/todo/todo.component';
+import { RegistrationComponent } from './components/registration/registration.component';
+import { ControlComponent } from './components/control/control.component';
 
 //mapping address and component
 const routes: Routes = [

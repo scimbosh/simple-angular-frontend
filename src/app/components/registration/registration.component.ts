@@ -3,7 +3,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { User } from 'src/app/model/user/user';
 import { Role } from 'src/app/model/role/role';
-import { UserService } from '../userservice/user.service';
+import { UserService } from '../../services/userservice/user.service';
 import { FormControl, Validators } from '@angular/forms';
 
 @Component({

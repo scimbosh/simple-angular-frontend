@@ -18,10 +18,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { AuthInterceptor } from 'src/app/interceptor/auth.interceptor';
 import { AppComponent } from './app.component';
-import { TodoComponent } from './todo/todo.component';
-import { LoginComponent } from './login/login.component';
-import { ControlComponent } from './control/control.component';
-import { RegistrationComponent } from './registration/registration.component';
+import { TodoComponent } from './components/todo/todo.component';
+import { LoginComponent } from './components/login/login.component';
+import { ControlComponent } from './components/control/control.component';
+import { RegistrationComponent } from './components/registration/registration.component';
 
 
 @NgModule({
